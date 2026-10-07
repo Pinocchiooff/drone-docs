@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msvalidate.01" content="B0C44F456233E632C15D1865031A2DBF" />
+    <meta name="description" content="Open-source drone documentation, resources, and guides for building drones, drone swarms, autopilots, ROS, GPS navigation, telemetry, simulation, and regulation.">
+    <meta name="keywords" content="drone, UAV, PX4, ArduPilot, ROS, drone swarm, essaim drones, MAVLink, Gazebo, AirSim, EASA, regulation">
+    <meta name="language" content="en">
+    <meta name="author" content="Pinocchiooff">
+    <title>Drone Documentation - Open Source Resources</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.1em; opacity: 0.95; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        nav { background: white; padding: 15px 20px; margin-bottom: 30px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        nav a { color: #667eea; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #764ba2; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { color: #667eea; border-bottom: 3px solid #667eea; padding-bottom: 10px; margin-bottom: 20px; }
+        .section h3 { color: #764ba2; margin-top: 20px; margin-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0; }
+        .card { background: #f9f9f9; padding: 20px; border-radius: 5px; border-left: 4px solid #667eea; }
+        .card h4 { color: #667eea; margin-bottom: 10px; }
+        .card p { font-size: 0.95em; line-height: 1.5; }
+        .card a { color: #667eea; text-decoration: none; font-weight: 500; }
+        .card a:hover { text-decoration: underline; }
+        .link-list { list-style: none; margin: 15px 0; }
+        .link-list li { margin: 10px 0; padding: 10px; background: #f0f0f0; border-radius: 3px; }
+        .link-list a { color: #667eea; text-decoration: none; }
+        .link-list a:hover { text-decoration: underline; }
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; border-radius: 5px; }
+        .highlight { background: #fff3cd; padding: 15px; border-radius: 5px; margin: 15px 0; border-left: 4px solid #ffc107; }
+        @media (max-width: 768px) { header h1 { font-size: 1.8em; } nav ul { flex-direction: column; gap: 10px; } .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🚁 Drone Documentation</h1>
+    <p>Open-source resources, guides, and reference for building drones, drone swarms, autopilots, and autonomous systems</p>
+</header>
+
+<div class="container">
+
+<nav>
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#drones">Drones</a></li>
+        <li><a href="#swarms">Drone Swarms</a></li>
+        <li><a href="#autopilots">Autopilots</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#regulation">Regulation</a></li>
+        <li><a href="https://github.com/Pinocchiooff/drone-docs">GitHub</a></li>
+    </ul>
+</nav>
+
+<div class="section" id="overview">
+    <h2>Overview</h2>
+    <p>This documentation centralizes open-source resources for drone development, including:</p>
+    <ul class="link-list">
+        <li>Drone architecture and components</li>
+        <li>Flight control systems: PX4 and ArduPilot</li>
+        <li>Autonomous navigation with GPS and IMU</li>
+        <li>Telemetry and sensor integration</li>
+        <li>ROS 2 and middleware for robotics</li>
+        <li>Simulation tools: Gazebo and AirSim</li>
+        <li>Drone swarms and multi-agent systems</li>
+        <li>European regulation (EASA)</li>
+    </ul>
+    <p style="margin-top: 20px;"><strong>🔗 Main Repository:</strong> <a href="https://github.com/Pinocchiooff/drone-docs">Pinocchiooff/drone-docs</a></p>
+</div>
+
+<div class="section" id="drones">
+    <h2>Drone Fundamentals</h2>
+    <h3>What is a Drone?</h3>
+    <p>An unmanned aerial vehicle (UAV) is an aircraft without a pilot on board, controlled remotely or autonomously. Drones are used in multiple domains: surveillance, inspection, delivery, agriculture, research, and entertainment.</p>
+    <h3>Main Components</h3>
+    <div class="grid">
+        <div class="card">
+            <h4>Flight Control</h4>
+            <p>Microcontroller, IMU, barometer, compass for attitude and position control.</p>
+        </div>
+        <div class="card">
+            <h4>Motors & Propellers</h4>
+            <p>Electric brushless motors (BLDC) with ESC for speed control.</p>
+        </div>
+        <div class="card">
+            <h4>Power</h4>
+            <p>LiPo batteries for energy, power distribution boards.</p>
+        </div>
+        <div class="card">
+            <h4>Navigation</h4>
+            <p>GPS/GNSS, IMU, altimeter for autonomous flight.</p>
+        </div>
+        <div class="card">
+            <h4>Communication</h4>
+            <p>Radio receiver, telemetry link, MAVLink protocol.</p>
+        </div>
+        <div class="card">
+            <h4>Payload</h4>
+            <p>Cameras, sensors, lidar for perception and data collection.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="swarms">
+    <h2>Drone Swarms</h2>
+    <p>A drone swarm is a coordinated group of autonomous drones working together to achieve a common goal. Swarms enable:</p>
+    <ul class="link-list">
+        <li><strong>Wider coverage:</strong> Multiple drones survey larger areas in parallel</li>
+        <li><strong>Redundancy:</strong> System resilience if one drone fails</li>
+        <li><strong>Complex missions:</strong> Tasks that a single drone cannot accomplish</li>
+        <li><strong>Distributed intelligence:</strong> Each drone makes local decisions contributing to the global objective</li>
+    </ul>
+    <h3>Key Technologies</h3>
+    <ul class="link-list">
+        <li>Decentralized coordination and consensus algorithms</li>
+        <li>Collision avoidance and path planning</li>
+        <li>Communication networks and MAVLink protocol</li>
+        <li>ROS 2 / micro-ROS for distributed robotics</li>
+        <li>Multi-agent reinforcement learning (MARL)</li>
+        <li>Real-time telemetry and state synchronization</li>
+    </ul>
+    <h3>Notable Projects</h3>
+    <ul class="link-list">
+        <li><a href="https://github.com/alireza787b/mavsdk_drone_show">alireza787b/mavsdk_drone_show</a> - MAVLink swarm framework</li>
+        <li><a href="https://github.com/skybrush-io/skybrush-server">skybrush-io/skybrush-server</a> - Drone show management</li>
+        <li><a href="https://github.com/machmind-dev/drone-swarm-challenge-2026">machmind-dev/drone-swarm-challenge-2026</a> - ROS 2 swarm challenge</li>
+        <li><a href="https://github.com/koesan/ORCUS">koesan/ORCUS</a> - Multi-drone surveillance</li>
+        <li><a href="https://github.com/micros-uav/CoFlyers">micros-uav/CoFlyers</a> - Cooperative flight simulation</li>
+    </ul>
+</div>
+
+<div class="section" id="autopilots">
+    <h2>Flight Control Systems</h2>
+    <h3>PX4 Autopilot</h3>
+    <p>Open-source autopilot stack for drones, multirotors, fixed-wing aircraft, and VTOL systems. PX4 provides:</p>
+    <ul class="link-list">
+        <li>Flight control algorithms</li>
+        <li>Autonomous navigation</li>
+        <li>Sensor fusion and state estimation</li>
+        <li>Mission planning</li>
+        <li>Safety features (RTL, geofencing)</li>
+    </ul>
+    <p><strong>📚 Resources:</strong> <a href="https://docs.px4.io/main/">PX4 Documentation</a> | <a href="https://github.com/PX4/PX4-Autopilot">GitHub Repository</a></p>
+    
+    <h3>ArduPilot</h3>
+    <p>Alternative open-source autopilot supporting copters, planes, rovers, and submarines.</p>
+    <p><strong>📚 Resources:</strong> <a href="https://ardupilot.org/">ArduPilot Website</a> | <a href="https://github.com/ArduPilot/ardupilot">GitHub Repository</a></p>
+</div>
+
+<div class="section" id="resources">
+    <h2>Key Technologies & Tools</h2>
+    
+    <h3>Navigation & Telemetry</h3>
+    <ul class="link-list">
+        <li><strong>MAVLink:</strong> <a href="https://mavlink.io/">Protocol for drone communication</a></li>
+        <li><strong>MAVSDK:</strong> <a href="https://mavsdk.io/">Software development kit for drone control</a></li>
+        <li><strong>QGroundControl:</strong> <a href="https://qgroundcontrol.com/">Ground station and mission planner</a></li>
+    </ul>
+    
+    <h3>Simulation & Testing</h3>
+    <ul class="link-list">
+        <li><strong>Gazebo:</strong> <a href="http://gazebosim.org/">Physics-based 3D simulator</a></li>
+        <li><strong>AirSim:</strong> <a href="https://github.com/microsoft/AirSim">Drone simulator by Microsoft</a></li>
+    </ul>
+    
+    <h3>Robotics & Distributed Systems</h3>
+    <ul class="link-list">
+        <li><strong>ROS 2:</strong> <a href="https://docs.ros.org/en/humble/">Robot Operating System</a></li>
+        <li><strong>micro-ROS:</strong> <a href="https://micro.ros.org/">Lightweight ROS for embedded systems</a></li>
+    </ul>
+    
+    <h3>GitHub Collections</h3>
+    <ul class="link-list">
+        <li><a href="https://github.com/topics/drone">GitHub topic: drone</a></li>
+        <li><a href="https://github.com/topics/uav">GitHub topic: UAV</a></li>
+        <li><a href="https://github.com/topics/drone-swarm">GitHub topic: drone-swarm</a></li>
+        <li><a href="https://github.com/topics/ros">GitHub topic: ros</a></li>
+    </ul>
+</div>
+
+<div class="section" id="regulation">
+    <h2>Regulation & Safety</h2>
+    
+    <div class="highlight">
+        <strong>⚠️ Important:</strong> All drone operations must comply with local and national regulations. In Europe, the EASA (European Union Aviation Safety Agency) sets the standards.
+    </div>
+    
+    <h3>EASA Drone Regulation</h3>
+    <p>The EASA defines three categories of drone operations:</p>
+    
+    <h4>1. Open Category</h4>
+    <p>Low-risk operations, simple procedures, for:</p>
+    <ul class="link-list">
+        <li>Recreational use</li>
+        <li>Light inspection</li>
+        <li>Professional use under simple conditions</li>
+    </ul>
+    
+    <h4>2. Specific Category</h4>
+    <p>Operations requiring risk assessment and authorization:</p>
+    <ul class="link-list">
+        <li>Complex missions</li>
+        <li>Operations over populated areas</li>
+        <li>Operations near sensitive zones</li>
+    </ul>
+    
+    <h4>3. Certified Category</h4>
+    <p>High-risk operations requiring system certification and operator qualification.</p>
+    
+    <h3>Key Considerations for Drone Projects</h3>
+    <ul class="link-list">
+        <li>Drone weight and classification</li>
+        <li>Intended use (hobby, professional, research)</li>
+        <li>Flight zone (urban, rural, near people, restricted airspace)</li>
+        <li>Operator qualifications and certifications</li>
+        <li>Emergency procedures and failsafe modes</li>
+        <li>Insurance and documentation requirements</li>
+    </ul>
+    
+    <h3>Official Regulatory Resources</h3>
+    <ul class="link-list">
+        <li><a href="https://www.easa.europa.eu/en/domains/">EASA Domains</a> - European aviation standards</li>
+        <li><a href="https://www.easa.europa.eu/en/easa-and-you/civil-drones-rpas">EASA Civil Drones / RPAS</a> - Drone-specific guidance</li>
+        <li><a href="https://www.faa.gov/uas/">FAA UAS Overview</a> - US regulation reference</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Quick Start Guide</h2>
+    <ol style="list-style-position: inside; line-height: 2;">
+        <li>Learn drone architecture and components</li>
+        <li>Choose an autopilot system (PX4 or ArduPilot)</li>
+        <li>Study computer vision and sensor integration</li>
+        <li>Learn ROS 2 and MAVLink protocol</li>
+        <li>Prototype in simulation (Gazebo or AirSim)</li>
+        <li>Test with real hardware in controlled environments</li>
+        <li>Ensure compliance with local drone regulations</li>
+        <li>Scale to swarms and multi-agent systems</li>
+    </ol>
+</div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Drone Documentation | Open-source under MIT License | <a href="https://github.com/Pinocchiooff/drone-docs" style="color: #667eea; text-decoration: none;">View on GitHub</a></p>
+</footer>
+
+</body>
+</html>
